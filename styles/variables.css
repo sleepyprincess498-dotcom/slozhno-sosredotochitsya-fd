@@ -1,4 +1,19 @@
-/*
-  Переменные для вашего проекта
-  и их переопределение под различные устройства
-*/
+:root {
+  --bg-image: url("/images/cover-image-dark.png");
+  --bg-color: rgba(0, 0, 40, 1);
+  --title-color: rgba(219, 0, 255, 1);
+  --text-color: rgba(241, 178, 206, 1);
+  --name-color: rgba(0, 0, 40, 1);
+  --accent-color: rgba(255, 0, 112, 1);
+  --heading-color: rgba(255, 0, 112, 1);
+  --hover-color: rgba(255, 0, 112, 0.4);
+  --button-color: rgba(255, 0, 112, 1);
+  --main-gap: 10px;
+  --title-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+}
+
+@media (width >= 768px) {
+  :root {
+    --title-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+}
