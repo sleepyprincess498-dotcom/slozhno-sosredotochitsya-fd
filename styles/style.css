@@ -1,5 +1,5 @@
 .page {
-  padding: 10px;
+  padding: 0 10px;
   background-image: var(--bg-image);
   background-position: center;
   background-size: cover;
@@ -16,14 +16,15 @@
 
 
 .header {
+  padding: 10px 0;
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
-  grid-template-rows: 35% 35% 1fr;
+  grid-template-rows: 1fr min-content 1fr;
 }
 
-.header::after{
+.decorated-zone::after {
   content: "";
   position: absolute;
   block-size: 25px;
@@ -31,11 +32,11 @@
   background-color: transparent;
   border-block-start: solid 1px var(--heading-color);
   border-inline-end: solid 1px var(--heading-color);
-  top: 0px;
+  top: 10px;
   right: 0px;
 }
 
-.header::before{
+.decorated-zone::before {
   content: "";
   position: absolute;
   block-size: 25px;
@@ -43,7 +44,7 @@
   background-color: transparent;
   border-block-end: solid 1px var(--heading-color);
   border-inline-start: solid 1px var(--heading-color);
-  bottom: 40px;
+  bottom: 10px;
   left: 0px;
 }
 
@@ -57,17 +58,17 @@
 }
 
 .theme-dark .header__theme-menu::after,
-.theme-auto .header__theme-menu::after{
+.theme-auto .header__theme-menu::after {
   content: "REC";
   position: absolute;
-  top: 0px;
+  top: 10px;
   right: 29px;
   display: inline-block;
   color: var(--accent-color);
 }
 
 .theme-dark .header__theme-menu::before,
-.theme-auto .header__theme-menu::before{
+.theme-auto .header__theme-menu::before {
   content: "";
   position: absolute;
   display: inline-block;
@@ -75,7 +76,7 @@
   width: 12px;
   height: 12px;
   right: 8px;
-  top: 7px;
+  top: 16px;
   border-radius: 100%;
   filter: blur(2px);
 }
@@ -113,11 +114,11 @@
 
 .header__title {
   font-size: 18px;
-  align-self: self-start;
+  align-self: center;
 }
 
 .content {
-  padding-block-start: 30px;
+  margin-block: 40px;
   display: grid;
   gap: 50px;
 }
@@ -125,7 +126,7 @@
 .section {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 20px 10px;
 }
 
 .subsection {
@@ -179,6 +180,13 @@
   outline: solid 1px var(--text-color);
 }
 
+.image__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  align-items:center;
+}
+
 .gallery__section {
   display: grid;
   gap: var(--main-gap);
@@ -190,34 +198,11 @@
 }
 
 .footer {
+  padding: 10px 0;
   position: relative;
   display: grid;
   justify-content: center;
   align-content: center;
-}
-
-.footer::after {
-  content: "";
-  position: absolute;
-  block-size: 25px;
-  inline-size: 25px;
-  background-color: transparent;
-  border-block-start: solid 1px var(--heading-color);
-  border-inline-end: solid 1px var(--heading-color);
-  right: 0px;
-  top: 30px;
-}
-
- .footer::before {
-  content: "";
-  position: absolute;
-  block-size: 25px;
-  inline-size: 25px;
-  background-color: transparent;
-  border-block-end: solid 1px var(--heading-color);
-  border-inline-start: solid 1px var(--heading-color);
-  bottom: 10px;
-  left: 0px;
 }
 
 .footer__heading {
@@ -226,12 +211,31 @@
 
 @media (width >= 768px) {
   .page {
-    padding: 20px;
+    padding: 0 20px;
   }
 
   .header {
+    padding: 20px 0;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 43% 26% 1fr;
+
+  }
+
+  .header::after {
+    top: 20px
+  }
+
+  .header::before {
+    bottom: 20px;
+  }
+
+  .theme-dark .header__theme-menu::after,
+  .theme-auto .header__theme-menu::after { 
+    top: 20px;
+  }
+
+  .theme-dark .header__theme-menu::before,
+  .theme-auto .header__theme-menu::before {
+    top: 26px;
   }
 
   .decoration {
@@ -249,12 +253,16 @@
     grid-column-end: 3;
   }
 
+  .causes {
+    max-width: 236px;
+  }
+
   .header__title {
     grid-column: 2;
   }
 
   .content {
-    padding-block-start: 40px;
+    margin-block: 60px;
     gap: 80px;
   }
 
@@ -262,10 +270,25 @@
     grid-template-columns: 1fr 2fr;
   }
 
+  .section {
+    gap: 20px;
+  }
+
+  .section__heading {
+    grid-column: 1;
+  }
+
+  .image__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    align-items:center;
+  }
+
   .gallery__section {
     gap: 20px;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 25.6% 30.1% 41.4%;
+   
   }
 
   .image__sunset {
@@ -308,15 +331,12 @@
   }
 
   .footer {
+    padding: 20px 0;
     margin-block-start: 60px;
   }
 }
 
 @media (width >= 1024px) {
-
-  .header {
-    grid-template-rows: 40% 30% 1fr;
-  }
 
   .header__theme-menu-list {
     flex-direction: row;
@@ -325,6 +345,14 @@
   .header__theme-menu {
     justify-self: center;
     align-self: self-start;
+  }
+
+  .section {
+    gap: 20px 10px;
+  }
+
+  .causes {
+    max-width: 315px;
   }
 
   .three__columns-text {
