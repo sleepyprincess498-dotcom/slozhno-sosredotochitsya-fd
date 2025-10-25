@@ -6,6 +6,7 @@
   min-inline-size: 375px;
   max-inline-size: 1440px;
   padding: 0 10px;
+  margin-inline: auto;
   background-image: var(--bg-image);
   background-position: center;
   background-size: cover;
@@ -91,7 +92,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--main-gap);
-  color: var(--accent-color);
+  color: var(--button-color);
 }
 
 .header__theme-menu-button {
@@ -110,6 +111,7 @@
 
 .header__theme-menu-button_active {
   outline: solid 1px var(--button-color);
+  pointer-events: none;
 }
 
 .header__heading {
@@ -120,6 +122,7 @@
 
 .header__title {
   font-size: 18px;
+  font-weight: 700;
   align-self: center;
 }
 
@@ -165,6 +168,10 @@
   font-size: inherit;
 }
 
+.subparagraph__title {
+  font-weight: 400;
+}
+
 .title-decor {
   background-color: var(--accent-color);
   color: var(--name-color);
@@ -179,7 +186,7 @@
 }
 
 .text__link:hover {
-  text-decoration: underline;
+  border-block-end: solid 1px var(--text-color);
 }
 
 .text__link:focus-visible {
@@ -226,11 +233,11 @@
 
   }
 
-  .header::after {
+  .decorated-zone::after {
     top: 20px
   }
 
-  .header::before {
+  .decorated-zone::before {
     bottom: 20px;
   }
 
@@ -272,7 +279,7 @@
     gap: 80px;
   }
 
-  .section:nth-child(2n-1) {
+  .many__content {
     grid-template-columns: 1fr 2fr;
   }
 
