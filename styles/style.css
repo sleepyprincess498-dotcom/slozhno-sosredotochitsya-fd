@@ -229,7 +229,7 @@
   }
 
   .theme-dark .header__theme-menu::after,
-  .theme-auto .header__theme-menu::after { 
+  .theme-auto .header__theme-menu::after {
     top: 20px;
   }
 
