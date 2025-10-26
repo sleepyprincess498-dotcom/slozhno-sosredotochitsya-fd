@@ -1,5 +1,5 @@
 :root {
-  --bg-image: url("/images/cover-image-dark.png");
+  --bg-image: url("../images/cover-image-dark.png");
   --bg-color: rgba(0, 0, 40, 1);
   --title-color: rgba(219, 0, 255, 1);
   --text-color: rgba(241, 178, 206, 1);
